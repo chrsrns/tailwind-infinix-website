@@ -1,0 +1,124 @@
+@charset "utf-8";
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255,0,0,1.00);
+}
+body {
+	font-family: "Helvetica, Arial", "sans-serif";
+	background-color: white;
+	display: block;
+	margin: 0;
+	padding: 0
+}
+a {
+	color: black;
+	text-shadow:2px 2px 5px rgba(0,0,0,0.25);
+	text-decoration: none;
+	cursor: pointer
+}
+.navbutton {
+	background-color: rgba(255,193,7,1.00);
+	border: none;
+	box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.15);
+	border-radius: 2px;
+	padding: 0 1rem;
+	vertical-align: middle;
+	display: inline-block;
+	width: 140px;
+	max-height: 30px;
+	box-sizing: border-box;
+	margin: 12px 16px 0px;
+	list-style-type: none;
+	font-size: 1.6em;
+	text-align: center;
+	color: black;
+}
+.navbutton:hover,.navbutton:active {
+	background-color: rgba(255,152,0,1.00);
+	text-shadow:2px 2px 5px rgba(0,0,0,0.2)
+}
+.dropper:hover > .dropdown {
+	display: inherit
+}
+.dropdown {
+	display: none;
+	background-color: rgba(255,155,30,0.82);
+	top:30px;
+	left:0px
+}
+.button {
+	background-color: #FF9100;
+	border: none;
+	box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.15);
+	border-radius: 2px;
+	padding: 0 2rem;
+	vertical-align: middle;
+	display: inline-block
+}
+.backVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  	transition: 1s opacity;
+}
+a:hover,a:active {
+	text-shadow:2px 2px 5px rgba(0,0,0,0.2);
+	text-decoration-color: rgba(255,152,0,1.00);
+}
+ul {
+	margin: 0;
+}
+h1 {
+	font-size: 4.2em;
+}
+h2 {
+	font-size: 2.6em;
+}
+h3 {
+	font-size: 2.1em;
+}
+h4 {
+	font-size: 1.6em;
+}
+h5 {
+	font-size: 1.1em;
+}
+h6 {
+	font-size: 0.8em;
+}
+.navigation {
+	height: 60px;
+	width: 100%;
+	box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.15);
+	background-color: rgba(251,140,0,1.00);
+	position: fixed
+}
+.heading {
+	padding-top: 75px;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 95px;
+	box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5) inset;
+	clear: both
+}
+.footer {
+	padding-top: 75px;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 95px;
+	box-shadow: 0px -4px 5px 2px rgba(0,0,0,0.5);
+	clear: both
+}
+.container {
+	display: block;
+	overflow: scroll
+}
