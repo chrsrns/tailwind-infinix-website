@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .navbtn {
+    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2;
+  }
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 0, 0, 1);
 }
