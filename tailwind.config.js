@@ -17,13 +17,17 @@ module.exports = {
         }
       },
       animation: {
-        btngradientflow: 'gradientflow 3s ease infinite'
+        btngradientflow: 'gradientflow 6s ease infinite'
+      },
+      backgroundImage: {
+        'hero-img': "url(Images/Orange.png)"
       }
     },
     colors: {
       'primary': '#ffc107',
       'secondary': '#ff9800',
-      'tertiary': '#C1292E',
+      'tertiary': '#3B3561',
+      'orange-1': '#f3a600',
       'blue': '#1fb6ff',
       'purple': '#7e5bef',
       'pink': '#FF4365',
