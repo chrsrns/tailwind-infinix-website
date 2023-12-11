@@ -13,14 +13,26 @@ module.exports = {
           },
           "100%": {
             'background-position': '0% 91%'
+        },
+        borderglow: {
+          '0%': {
+            'background-position': '0 0'
+          },
+          '50%': {
+            'background-position': '100% 0'
+          },
+          '100%': {
+            'background-position': '0 0'
           }
         }
       },
       animation: {
-        btngradientflow: 'gradientflow 6s ease infinite'
+        btngradientflow: 'gradientflow 6s ease infinite',
+        borderglow: 'borderglow 5s linear infinite'
       },
       backgroundImage: {
-        'hero-img': "url(Images/Orange.png)"
+        'hero-img': "url(Images/Orange.png)",
+        'rainbow': 'repeating-linear-gradient(45deg, #ffc107, #ff4365, #ffc107, #ff4365, #ffc107, #ff4365, #ffc107, #ff00c8)'
       }
     },
     colors: {
