@@ -41,7 +41,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-img': "url(Images/Orange.png)",
-        'rainbow': 'repeating-linear-gradient(45deg, #ffc107, #ff4365, #ffc107, #ff4365, #ffc107, #ff4365, #ffc107, #ff00c8)'
+        'rainbow': 'repeating-linear-gradient(45deg, #ffc107, #E9F1F7, #ffc107, #E9F1F7, #ffc107, #E9F1F7, #ffc107, #E9F1F7)'
       }
     },
   },
