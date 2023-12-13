@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         'primary': '#ffc107',
         'secondary': '#ff9800',
-        'tertiary': '#3B3561',
+        'tertiary': '#e65100',
         'orange-1': '#f3a600',
       },
       keyframes: {
