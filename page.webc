@@ -1,0 +1,45 @@
+<!-- HTML-->
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>InfiniX - Realm of Gamers</title>
+    <meta charset="utf-8" />
+    <link href="index-tailwind.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <navbar></navbar>
+    <div
+      id="home"
+      class="h-screen flex flex-col justify-center items-center px-0 pt-20 shadow-inner bg-center bg-cover bg-fixed bg-hero-img"
+    >
+      <h1
+        class="w-fit mb-16 text-9xl [text-shadow:_0_1rem_1rem_rgb(0_0_0_/_40%)]"
+        align="center"
+      >
+        InfiniX
+      </h1>
+      <div class="bg-orange-1 rounded-xl shadow px-5 mb-8">
+        <h4
+          align="center"
+          style="
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            font-size: 3em;
+            color: rgba(0, 0, 0, 1);
+          "
+        >
+          Into the Realm of Gamers
+        </h4>
+      </div>
+
+      <a href="about.html">
+        <div
+          class="relative cursor-pointer z-0 text-center my-0 p-3 rounded-md shadow-lg before:bg-rainbow before:bg-repeat before:absolute before:-top-1 before:-left-1 before:bg-[length:400%_400%] before:-z-[1] before:w-[calc(100%+0.5rem)] before:h-[calc(100%+0.5rem)] before:animate-borderglow before:opacity-0 before:transition-opacity before:rounded-md before:hover:opacity-100 after:-z-[1] after:absolute after:w-full after:h-full after:top-0 after:left-0 after:rounded-md after:bg-primary after:hover:bg-yellow-400 after:transition-colors"
+        >
+          <h4 class="text-2xl">Learn More</h4>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>
