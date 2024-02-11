@@ -27,7 +27,7 @@
               <img
                 id="navLogo"
                 class=""
-                src="/static/media/Logo_Original.png"
+                src="/tailwind-infinix-website/static/media/Logo_Original.png"
                 width="100%"
               />
             </div>
