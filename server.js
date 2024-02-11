@@ -8,10 +8,12 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const server = http.createServer((req, res) => {
-  // Using glob pattern to match routes dynamically
+  // Check if the requested file exists
+  console.log(req.url);
   if (isStaticFile(req.url)) {
+    console.log("media");
     // Check if the requested URL matches a media file
-    const mediaFile = getMediaFile(req.url);
+    const mediaFile = getMediaFile(decodeURI(req.url));
     if (mediaFile) {
       serveMediaFile(res, mediaFile);
     } else {
@@ -19,28 +21,23 @@ const server = http.createServer((req, res) => {
       res.end("404 Not Found");
     }
   } else {
-    switch (req.url) {
-      case "/":
-        serveHTMLFile(res, "index.html");
-        break;
-      case "/about":
-        serveHTMLFile(res, "about.html");
-        break;
-      case "/library":
-        serveHTMLFile(res, "library.html");
-        break;
-      default:
-        // Handling 404 Not Found for other URLs
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("404 Not Found");
-        break;
-    }
+    console.log("html");
+    serveHTMLFile(res, "index.html");
+    // switch (req.url) {
+    //   case "/":
+    //     serveHTMLFile(res, "index.html");
+    //     break;
+    //   default:
+    //     res.writeHead(302, { Location: "/" });
+    //     res.end();
+    //     break;
+    // }
   }
 });
 
 // Function to check if the requested URL corresponds to a static file
 function isStaticFile(url) {
-  return url.match(".*\\.(js|css|ico|svg|jpg|png)$");
+  return url.match("(/static/.+\\..+|/.+\\.(ico))");
 }
 
 // Function to match route using glob pattern
@@ -57,6 +54,7 @@ function getRoute(url) {
 
 // Function to serve HTML files
 function serveHTMLFile(res, filename) {
+  console.log(filename);
   fs.readFile(filename, (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });
@@ -71,6 +69,7 @@ function serveHTMLFile(res, filename) {
 // Function to match media files
 function getMediaFile(url) {
   const filePath = path.join(__dirname, url);
+  console.log("filepath ", fs.existsSync(filePath));
   if (fs.existsSync(filePath)) {
     return filePath;
   }
@@ -78,8 +77,8 @@ function getMediaFile(url) {
 }
 
 // Function to serve media files
-function serveMediaFile(res, filePath) {
-  fs.readFile(filePath, (err, data) => {
+function serveMediaFile(res, filename) {
+  fs.readFile(filename, (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });
       res.end("Internal Server Error");
