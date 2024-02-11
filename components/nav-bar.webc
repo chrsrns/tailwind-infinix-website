@@ -6,16 +6,10 @@
   <center>
     <div class="flex flex-row m-auto items-center justify-center">
       <div class="basis-2/5 flex flex-row-reverse gap-6 px-6">
-        <div>
-          <a href="contacts.html">
-            <div class="navbtn">Contacts</div>
-          </a>
-        </div>
-        <div>
-          <a href="library.html">
-            <div class="navbtn">Library</div>
-          </a>
-        </div>
+        <div
+          webc:for="(key, val) in {Contacts: 'contacts.html', Library: 'library.html'}"
+          @html="`<a href=${val}><div class='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2'>${key}</div></a>`"
+        ></div>
       </div>
       <div class="flex-none relative h-full" style="width: 12rem">
         <a class="absolute inset-x-0 -top-12" href="index.html">
@@ -36,12 +30,10 @@
         </a>
       </div>
       <div class="basis-2/5 flex flex-row gap-6 px-6">
-        <a href="about.html">
-          <div class="navbtn">About</div>
-        </a>
-        <a href="gallery.html">
-          <div class="navbtn">Gallery</div>
-        </a>
+        <div
+          webc:for="(key, val) in {About: 'about.html', Gallery: 'gallery.html'}"
+          @html="`<a href=${val}><div class='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2'>${key}</div></a>`"
+        ></div>
       </div>
     </div>
   </center>
