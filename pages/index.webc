@@ -1,0 +1,17 @@
+<!-- HTML-->
+<!doctype html>
+
+<html>
+  <head>
+    <title>InfiniX - Realm of Gamers</title>
+    <meta charset="utf-8" />
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <nav-bar></nav-bar>
+    <div id="content" class="min-h-screen"></div>
+
+    <script src="/static/js/router.js"></script>
+  </body>
+</html>

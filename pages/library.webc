@@ -5,15 +5,14 @@
   <head>
     <title>InfiniX - Realm of Gamers</title>
     <meta charset="utf-8" />
-    <link href="index-tailwind.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
-    <nav-bar></nav-bar>
     <div class="w-screen min-h-screen flex flex-col">
       <div
         class="bg-cover bg-center shadow-[inset_0_20px_25px_-5px_rgb(0_0_0_/_0.4),_0_8px_10px_-6px_rgb(0_0_0_/_0.3)]"
-        style="background-image: url(Images/Battle.jpg)"
+        style="background-image: url(/static/media/Battle.jpg)"
       >
         <div
           class="w-full h-full flex justify-center bg-yellow-200/70 pt-40 pb-20"
@@ -36,7 +35,7 @@
       </div>
       <div
         class="w-full p-14 flex-1 bg-center bg-cover"
-        style="background-image: url(Images/OrangeSunrise.png)"
+        style="background-image: url(/static/media/OrangeSunrise.png)"
       >
         <div class="container mx-auto">
           <h2 align="center">Games Library</h2>
@@ -68,7 +67,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (9).png"
+                      src="/static/media/Screenshot (9).png"
                     />
                   </div>
                 </a>
@@ -88,7 +87,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (10).png"
+                      src="/static/media/Screenshot (10).png"
                     />
                   </div>
                 </a>
@@ -116,7 +115,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (6).png"
+                      src="/static/media/Screenshot (6).png"
                     />
                   </div>
                 </a>
@@ -136,7 +135,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (7).png"
+                      src="/static/media/Screenshot (7).png"
                     />
                   </div>
                 </a>
@@ -164,7 +163,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (13).png"
+                      src="/static/media/Screenshot (13).png"
                     />
                   </div>
                 </a>
@@ -184,7 +183,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (11).png"
+                      src="/static/media/Screenshot (11).png"
                     />
                   </div>
                 </a>
@@ -212,7 +211,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (12).png"
+                      src="/static/media/Screenshot (12).png"
                     />
                   </div>
                 </a>
@@ -232,7 +231,7 @@
                         margin: 1%;
                         box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.15);
                       "
-                      src="Images/Screenshot (14).png"
+                      src="/static/media/Screenshot (14).png"
                     />
                   </div>
                 </a>
