@@ -27,3 +27,16 @@ library.compile().then(({ html, css, js, components }) => {
     }
   });
 });
+
+// Compiling about.html
+let about = new WebC();
+about.defineComponents(COMPONENTS_DIR);
+about.setInputPath("./pages/about.webc");
+
+about.compile().then(({ html, css, js, components }) => {
+  fs.writeFile("./about.html", html, (err) => {
+    if (err) {
+      console.log({ err });
+    }
+  });
+});
