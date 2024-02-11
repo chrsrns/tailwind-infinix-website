@@ -5,13 +5,21 @@
   <head>
     <title>InfiniX - Realm of Gamers</title>
     <meta charset="utf-8" />
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="/tailwind-infinix-website/static/css/style.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      type="text/javascript"
+      src="/tailwind-infinix-website/static/js/ghspa.js"
+    ></script>
   </head>
 
   <body>
     <nav-bar></nav-bar>
     <div id="content" class="min-h-screen"></div>
 
-    <script src="/static/js/router.js"></script>
+    <script src="/tailwind-infinix-website/static/js/router.js"></script>
   </body>
 </html>
