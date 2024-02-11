@@ -4,17 +4,17 @@ const routes = {
     title: "404",
     description: "Page not found",
   },
-  "/": {
+  "/tailwind-infinix-website/": {
     template: "/tailwind-infinix-website/static/home.html",
     title: "Home",
     description: "This is the home page",
   },
-  "/about": {
+  "/tailwind-infinix-website/about": {
     template: "/tailwind-infinix-website/static/about.html",
     title: "About Us",
     description: "This is the about page",
   },
-  "/library": {
+  "/tailwind-infinix-website/library": {
     template: "/tailwind-infinix-website/static/library.html",
     title: "Contact Us",
     description: "This is the contact page",
