@@ -7,12 +7,17 @@
     <div class="flex flex-row m-auto items-center justify-center">
       <div class="basis-2/5 flex flex-row-reverse gap-6 px-6">
         <div
-          webc:for="(key, val) in {Contacts: 'contacts.html', Library: 'library.html'}"
-          @html="`<a href=${val}><div class='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2'>${key}</div></a>`"
+          webc:for="(key, val) in {Contacts: '/contacts', Library: '/library'}"
+          @html="`
+          <a class='navlink' href=${val}>
+            <div class='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2'>
+              ${key}
+            </div>
+          </a>`"
         ></div>
       </div>
       <div class="flex-none relative h-full" style="width: 12rem">
-        <a class="absolute inset-x-0 -top-12" href="index.html">
+        <a class="navlink absolute inset-x-0 -top-12" href="/">
           <div
             class="group transition ease-in-out delay-150 bg-[length:200%_200%] bg-gradient-to-bl from-yellow-400 via-white to-yellow-400 from-45% via-50% to-55% hover:scale-110 animate-btngradientflow duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 rounded-md shadow-lg rounded-b-full"
           >
@@ -22,7 +27,7 @@
               <img
                 id="navLogo"
                 class=""
-                src=" Images/Logo_Original.png"
+                src="/static/media/Logo_Original.png"
                 width="100%"
               />
             </div>
@@ -31,8 +36,13 @@
       </div>
       <div class="basis-2/5 flex flex-row gap-6 px-6">
         <div
-          webc:for="(key, val) in {About: 'about.html', Gallery: 'gallery.html'}"
-          @html="`<a href=${val}><div class='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2'>${key}</div></a>`"
+          webc:for="(key, val) in {About: '/about', Gallery: '/gallery'}"
+          @html="`
+          <a class='navlink' href=${val}>
+            <div class='transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2'>
+              ${key}
+            </div>
+          </a>`"
         ></div>
       </div>
     </div>
