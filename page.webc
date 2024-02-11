@@ -1,5 +1,5 @@
 <!-- HTML-->
-<!DOCTYPE html>
+<!doctype html>
 
 <html>
   <head>
@@ -12,7 +12,7 @@
     <nav-bar></nav-bar>
     <div
       id="home"
-      class="h-screen flex flex-col justify-center items-center px-0 pt-20 shadow-inner bg-center bg-cover bg-fixed bg-hero-img"
+      class="h-screen flex flex-col justify-center items-center px-0 pb-36 shadow-inner bg-center bg-cover bg-fixed bg-hero-img"
     >
       <h1
         class="w-fit mb-16 text-9xl [text-shadow:_0_1rem_1rem_rgb(0_0_0_/_40%)]"
