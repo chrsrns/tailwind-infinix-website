@@ -11,6 +11,7 @@ const getUrl = (url = "/") => {
 };
 
 // Compiling index.html
+console.log("Compiling index.html");
 let index = new WebC();
 index.setHelper("getUrl", getUrl);
 index.defineComponents(COMPONENTS_DIR);
@@ -25,6 +26,7 @@ index.compile().then(({ html, css, js, components }) => {
 });
 
 // Compiling home.html
+console.log("Compiling home.html");
 let home = new WebC();
 home.setHelper("getUrl", getUrl);
 home.defineComponents(COMPONENTS_DIR);
@@ -39,6 +41,7 @@ home.compile().then(({ html, css, js, components }) => {
 });
 
 // Compiling library.html
+console.log("Compiling library.html");
 let library = new WebC();
 library.setHelper("getUrl", getUrl);
 library.defineComponents(COMPONENTS_DIR);
@@ -54,6 +57,7 @@ library.compile().then(({ html, css, js, components }) => {
 
 // Compiling about.html
 let about = new WebC();
+console.log("Compiling about.html");
 about.setHelper("getUrl", getUrl);
 about.defineComponents(COMPONENTS_DIR);
 about.setInputPath("./pages/about.webc");
