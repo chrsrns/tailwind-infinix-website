@@ -5,6 +5,11 @@
   <head>
     <title>InfiniX - Realm of Gamers</title>
     <meta charset="utf-8" />
+    <link
+      :href="getUrl('/static/css/style.css')"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
