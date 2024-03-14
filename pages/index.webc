@@ -14,6 +14,11 @@
       type="text/javascript"
       :src="getUrl('/static/js/ghspa.js')"
     ></script>
+    <script>
+      var isRegistered = function (name) {
+        return document.createElement(name).constructor !== HTMLElement;
+      };
+    </script>
   </head>
 
   <body>
