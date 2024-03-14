@@ -6,7 +6,7 @@
     <title>InfiniX - Realm of Gamers</title>
     <meta charset="utf-8" />
     <link
-      href="/tailwind-infinix-website/static/css/style.css"
+      :href="getUrl('/static/css/style.css')"
       rel="stylesheet"
       type="text/css"
     />
@@ -15,7 +15,7 @@
   <body>
     <div
       id="home"
-      class="h-screen flex flex-col justify-center items-center px-0 pb-36 shadow-inner bg-center bg-cover bg-fixed bg-hero-img"
+      :class="(`h-screen flex flex-col justify-center items-center px-0 pb-36 shadow-inner bg-center bg-cover bg-fixed bg-[url(\'${getUrl('/static/media/Orange.png')}\')]`)"
     >
       <h1
         class="w-fit mb-16 text-9xl [text-shadow:_0_1rem_1rem_rgb(0_0_0_/_40%)]"

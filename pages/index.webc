@@ -6,13 +6,13 @@
     <title>InfiniX - Realm of Gamers</title>
     <meta charset="utf-8" />
     <link
-      href="/tailwind-infinix-website/static/css/style.css"
+      :href="getUrl('/static/css/style.css')"
       rel="stylesheet"
       type="text/css"
     />
     <script
       type="text/javascript"
-      src="/tailwind-infinix-website/static/js/ghspa.js"
+      :src="getUrl('/static/js/ghspa.js')"
     ></script>
   </head>
 
@@ -20,6 +20,6 @@
     <nav-bar></nav-bar>
     <div id="content" class="min-h-screen"></div>
 
-    <script src="/tailwind-infinix-website/static/js/router.js"></script>
+    <script :src="getUrl('/static/js/router.js')"></script>
   </body>
 </html>

@@ -2,8 +2,17 @@ import { WebC } from "@11ty/webc";
 import fs from "fs";
 const COMPONENTS_DIR = "./components/**.webc";
 
+function isDev() {
+  return process.env.DEVELOPMENT;
+}
+
+const getUrl = (url = "/") => {
+  return `${isDev() ? "" : "/tailwind-infinix-website"}${url}`;
+};
+
 // Compiling index.html
 let index = new WebC();
+index.setHelper("getUrl", getUrl);
 index.defineComponents(COMPONENTS_DIR);
 index.setInputPath("./pages/index.webc");
 
@@ -17,6 +26,7 @@ index.compile().then(({ html, css, js, components }) => {
 
 // Compiling home.html
 let home = new WebC();
+home.setHelper("getUrl", getUrl);
 home.defineComponents(COMPONENTS_DIR);
 home.setInputPath("./pages/home.webc");
 
@@ -30,6 +40,7 @@ home.compile().then(({ html, css, js, components }) => {
 
 // Compiling library.html
 let library = new WebC();
+library.setHelper("getUrl", getUrl);
 library.defineComponents(COMPONENTS_DIR);
 library.setInputPath("./pages/library.webc");
 
@@ -43,6 +54,7 @@ library.compile().then(({ html, css, js, components }) => {
 
 // Compiling about.html
 let about = new WebC();
+about.setHelper("getUrl", getUrl);
 about.defineComponents(COMPONENTS_DIR);
 about.setInputPath("./pages/about.webc");
 
