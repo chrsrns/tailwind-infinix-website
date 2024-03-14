@@ -1,14 +1,8 @@
 import { WebC } from "@11ty/webc";
 import fs from "fs";
+import { getUrl } from "./helper";
 const COMPONENTS_DIR = "./components/**.webc";
 
-function isDev() {
-  return process.env.DEVELOPMENT;
-}
-
-const getUrl = (url = "/") => {
-  return `${isDev() ? "" : "/tailwind-infinix-website"}${url}`;
-};
 let webc = new WebC();
 webc.setHelper("getUrl", getUrl);
 webc.defineComponents(COMPONENTS_DIR);
