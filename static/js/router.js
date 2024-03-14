@@ -1,25 +1,53 @@
-const routes = {
-  404: {
-    template: "/tailwind-infinix-website/static/templates/404.html",
-    title: "404",
-    description: "Page not found",
-  },
-  "/tailwind-infinix-website/": {
-    template: "/tailwind-infinix-website/static/home.html",
-    title: "Home",
-    description: "This is the home page",
-  },
-  "/tailwind-infinix-website/about": {
-    template: "/tailwind-infinix-website/static/about.html",
-    title: "About Us",
-    description: "This is the about page",
-  },
-  "/tailwind-infinix-website/library": {
-    template: "/tailwind-infinix-website/static/library.html",
-    title: "Contact Us",
-    description: "This is the contact page",
-  },
-};
+const isDev =
+  location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
+// if (isDev) alert("This is in a local dev server.");
+
+const routes = isDev
+  ? {
+      404: {
+        template: "/static/templates/404.html",
+        title: "404",
+        description: "Page not found",
+      },
+      "/": {
+        template: "/static/home.html",
+        title: "Home",
+        description: "This is the home page",
+      },
+      "/about": {
+        template: "/static/about.html",
+        title: "About Us",
+        description: "This is the about page",
+      },
+      "/library": {
+        template: "/static/library.html",
+        title: "Contact Us",
+        description: "This is the contact page",
+      },
+    }
+  : {
+      404: {
+        template: "tailwind-infinix-website/static/templates/404.html",
+        title: "404",
+        description: "Page not found",
+      },
+      "/tailwind-infinix-website/": {
+        template: "/tailwind-infinix-website/static/home.html",
+        title: "Home",
+        description: "This is the home page",
+      },
+      "/tailwind-infinix-website/about": {
+        template: "/tailwind-infinix-website/static/about.html",
+        title: "About Us",
+        description: "This is the about page",
+      },
+      "/tailwind-infinix-website/library": {
+        template: "/tailwind-infinix-website/static/library.html",
+        title: "Contact Us",
+        description: "This is the contact page",
+      },
+    };
 
 // create document click that watches the nav links only
 document.addEventListener("click", (e) => {
