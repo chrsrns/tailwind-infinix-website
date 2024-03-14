@@ -1,6 +1,6 @@
 import { WebC } from "@11ty/webc";
 import fs from "fs";
-import { getUrl } from "./helper";
+import { getUrl } from "./helper.js";
 const COMPONENTS_DIR = "./components/**.webc";
 
 let webc = new WebC();
