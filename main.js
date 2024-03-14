@@ -58,3 +58,17 @@ about.compile().then(({ html, css, js, components }) => {
     }
   });
 });
+
+// Compiling fake 404.html router
+console.log("Compiling fake 404.html router");
+let fakeRouter = new WebC();
+fakeRouter.setHelper("getUrl", getUrl);
+fakeRouter.defineComponents(COMPONENTS_DIR);
+fakeRouter.setInputPath("./pages/404-router.webc");
+fakeRouter.compile().then(({ html, css, js, components }) => {
+  fs.writeFile("./404.html", html, (err) => {
+    if (err) {
+      console.log({ err });
+    }
+  });
+});
