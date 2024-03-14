@@ -61,6 +61,23 @@ document.addEventListener("click", (e) => {
   route();
 });
 
+const setInnerHTML = (elm, html) => {
+  elm.innerHTML = html;
+
+  Array.from(elm.querySelectorAll("script")).forEach((oldScriptEl) => {
+    const newScriptEl = document.createElement("script");
+
+    Array.from(oldScriptEl.attributes).forEach((attr) => {
+      newScriptEl.setAttribute(attr.name, attr.value);
+    });
+
+    const scriptText = document.createTextNode(oldScriptEl.innerHTML);
+    newScriptEl.appendChild(scriptText);
+
+    oldScriptEl.parentNode.replaceChild(newScriptEl, oldScriptEl);
+  });
+};
+
 const route = (event) => {
   console.log("routing...");
   event = event || window.event; // get window.event if event argument not provided
@@ -82,7 +99,7 @@ const locationHandler = async () => {
   // get the html from the template
   const html = await fetch(route.template).then((response) => response.text());
   // set the content of the content div to the html
-  document.getElementById("content").innerHTML = html;
+  setInnerHTML(document.getElementById("content"), html);
   // set the title of the document to the title of the route
 };
 
