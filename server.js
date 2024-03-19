@@ -8,30 +8,49 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const server = http.createServer((req, res) => {
-  // Check if the requested file exists
-  console.log(req.url);
-  if (isStaticFile(req.url)) {
-    console.log("media");
-    // Check if the requested URL matches a media file
-    const mediaFile = getMediaFile(decodeURI(req.url));
-    if (mediaFile) {
-      serveMediaFile(res, mediaFile);
+  // Splitting the URL by slashes
+  const urlParts = req.url.split("/");
+  // Remove the first item if it's blank
+  const urlTrimmed = urlParts[0] === "" ? urlParts.slice(1) : urlParts;
+  // Remove base URL for dev processing
+  const urlBaseTrimmed =
+    urlTrimmed[0] === "tailwind-infinix-website"
+      ? urlTrimmed.slice(1)
+      : urlTrimmed;
+  // Output the parts
+  const urlPartsConcat = "/" + urlBaseTrimmed.join("/");
+  console.log("Trimmed: ", urlTrimmed);
+  console.log("Concat: ", urlPartsConcat);
+
+  if (urlTrimmed[0] === "tailwind-infinix-website")
+    if (isStaticFile(urlPartsConcat)) {
+      console.log("media");
+      // Check if the requested URL matches a media file
+      const mediaFile = getMediaFile(decodeURI(urlPartsConcat));
+      if (mediaFile) {
+        serveMediaFile(res, mediaFile);
+      } else {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("404 Not Found");
+      }
     } else {
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("404 Not Found");
+      console.log("html");
+      serveHTMLFile(res, "index.html");
+      // serveHTMLFile(res, "404.html");
+      // switch (req.url) {
+      //   case "/":
+      //     serveHTMLFile(res, "index.html");
+      //     break;
+      //   default:
+      //     res.writeHead(302, { Location: "/" });
+      //     res.end();
+      //     break;
+      // }
     }
-  } else {
-    console.log("html");
-    serveHTMLFile(res, "index.html");
-    // switch (req.url) {
-    //   case "/":
-    //     serveHTMLFile(res, "index.html");
-    //     break;
-    //   default:
-    //     res.writeHead(302, { Location: "/" });
-    //     res.end();
-    //     break;
-    // }
+  else {
+    console.log("first part of url is NOT VALID");
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("404 Not Found");
   }
 });
 
@@ -92,6 +111,7 @@ function serveMediaFile(res, filename) {
 // Starting the server
 const PORT = 3000;
 server.listen(PORT, () => {
+  console.log("env: ", process.env.DEVELOPMENT);
   console.log(`Server is running on port ${PORT}`);
 });
 
