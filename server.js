@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
   // Splitting the URL by slashes
   const urlParts = req.url.split("/");
   // Remove the first item if it's blank
-  const urlTrimmed = urlParts[0] === "" ? urlParts.slice(1) : urlParts;
+  const urlTrimmed = urlParts.filter((n) => n);
   // Remove base URL for dev processing
   const urlBaseTrimmed =
     urlTrimmed[0] === "tailwind-infinix-website"
