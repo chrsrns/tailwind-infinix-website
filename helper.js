@@ -1,5 +1,5 @@
 const isDev = () => {
-  return process.env.DEVELOPMENT;
+  return process.env.DEVELOPMENT === "true";
 };
 
 export const getUrl = (url = "/") => {
