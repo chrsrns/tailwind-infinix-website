@@ -71,6 +71,16 @@ const locationHandler = async () => {
   if (location.length == 0) {
     location = "/";
   }
+
+  const urlsplit = location.split("/");
+  const urltrimmed = urlsplit.filter((n) => n);
+
+  const trimmedurlconcat = "/" + urltrimmed.join("/");
+
+  if (location !== trimmedurlconcat) {
+    window.location.pathname = trimmedurlconcat;
+  }
+
   // get the route object from the urlRoutes object
   const route = routes[location] || routes["404"];
   // get the html from the template
