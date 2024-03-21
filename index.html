@@ -3,19 +3,210 @@
     <meta charset="utf-8">
     <link href="/tailwind-infinix-website/static/css/style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/tailwind-infinix-website/static/js/ghspa.js"></script>
+    <script>
+      const copyClass = (sourceElement, targetElement) => {
+        // Get classes from the source element
+        const classes = sourceElement.classList;
+
+        // Add each class to the target element
+        classes.forEach((className) => {
+          targetElement.classList.add(className);
+        });
+      };
+      const isRegistered = (name) => {
+        return document.createElement(name).constructor !== HTMLElement;
+      };
+
+      if (!isRegistered("blog-entry"))
+        window.customElements.define(
+          "blog-entry",
+          class extends HTMLElement {
+            connectedCallback() {
+              console.log("custom element loaded");
+              // let template = this.querySelector("#template");
+              let blogsMain = this.querySelector("#blogs-main");
+              fetch("https://chrsrns-database.domcloud.dev/graphql", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  query: `query {
+                    articles {
+                      data {
+                        attributes {
+                          Title
+                          publishedAt
+                          HeaderImg {
+                            data {
+                              attributes {
+                                url
+                              }
+                            }
+                          }
+                          BlogID
+                        }
+                      }
+                    }
+                   }`,
+                }),
+              })
+                .then((res) => res.json())
+                .then((res) => {
+                  console.log("res: ", res);
+                  console.log("template: ", template);
+                  for (let article of res.data.articles.data) {
+                    let content = `
+                  <div class="rounded-lg">
+                    <article class="group">
+                      <a href="/tailwind-infinix-website/blog/${article.attributes.BlogID}">
+                        <img
+                          alt=""
+                          src="https://chrsrns-database.domcloud.dev${article.attributes.HeaderImg.data.attributes.url}"
+                          class="w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
+                        />
+                      </a>
+
+                      <div class="p-4">
+                        <a href="/tailwind-infinix-website/blog/${article.attributes.BlogID}">
+                          <h3 class="text-lg font-medium text-gray-900">
+                            ${article.attributes.Title}
+                          </h3>
+                        </a>
+
+                        <p class="my-2 text-sm/relaxed text-gray-900">
+                          This is a functional, full-stack website that is complete with
+                          an interactible calendar, a websocket notification and chat
+                          system and roles.
+                        </p>
+                      </div>
+                      <a href="/tailwind-infinix-website/blog/${article.attributes.BlogID}">
+                        <button class="bg-yellow-500 hover:bg-yellow-700 text-gray-900 font-medium py-2 px-4 rounded">
+                          Visit Page
+                        </button>
+                      </a>
+                    </article>
+                  </div>
+                  `;
+                    let clone = template.cloneNode(false);
+                    clone.removeAttribute("id");
+                    clone.innerHTML = content;
+                    this.appendChild(clone);
+                  }
+                  template.remove();
+                });
+            }
+          },
+        );
+
+      if (!isRegistered("blog-post")) {
+        window.customElements.define(
+          "blog-post",
+          class extends HTMLElement {
+            connectedCallback() {
+              const blogHeader = this.querySelector("#blog-header");
+              const blogHeaderText = this.querySelector("#header-text");
+              const blogContents = this.querySelector("#blog-contents");
+              const blogUID = window.location.pathname
+                .split("/")
+                .filter((n) => n)[2];
+
+              console.log(blogHeader);
+              console.log(blogHeaderText);
+              console.log(blogContents);
+              console.log("UID: ", blogUID);
+
+              fetch("https://chrsrns-database.domcloud.dev/graphql", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  query: `
+                    query {
+                      articles (filters: {BlogID: {eq: "${blogUID}" }}) {
+                        data {
+                          attributes {
+                            Title
+                            publishedAt
+                            HeaderImg {
+                              data {
+                                attributes {
+                                  url
+                                }
+                              }
+                            }
+                            Content
+                          }
+                        }
+                      }
+                    }
+                  `,
+                }),
+              })
+                .then((res) => res.json())
+                .then((res) => {
+                  console.log("res: ", res);
+                  const content = res.data.articles.data[0].attributes.Content;
+                  const title = res.data.articles.data[0].attributes.Title;
+                  const headerURL =
+                    res.data.articles.data[0].attributes.HeaderImg.data
+                      .attributes.url;
+
+                  blogHeaderText.innerHTML = title;
+                  blogHeader.style.backgroundImage = `url(https://chrsrns-database.domcloud.dev${headerURL})`;
+
+                  let concatContent = "";
+                  for (let contentItem of content) {
+                    switch (contentItem.type) {
+                      case "heading":
+                        {
+                          if (contentItem.level >= 6) contentItem.level = 5;
+                          const newHeading = document.createElement(
+                            `h${contentItem.level + 1}`,
+                          );
+                          const tmplHeading = this.querySelector(
+                            `#blog-h${contentItem.level + 1}`,
+                          );
+                          newHeading.innerHTML = contentItem.children[0].text;
+                          copyClass(tmplHeading, newHeading);
+                          console.log("template heading: ", tmplHeading);
+                          console.log("new heading: ", newHeading);
+                          blogContents.appendChild(newHeading);
+                        }
+                        break;
+                      case "paragraph":
+                        {
+                          const newParagraph = document.createElement(`p`);
+                          const tmplParagraph = this.querySelector(`#blog-p`);
+                          newParagraph.innerHTML = contentItem.children[0].text;
+                          copyClass(tmplParagraph, newParagraph);
+                          console.log("template p: ", tmplParagraph);
+                          console.log("new p: ", newParagraph);
+                          blogContents.appendChild(newParagraph);
+                        }
+                        break;
+                    }
+                    if (contentItem.type === "paragraph")
+                      concatContent += `<p>${contentItem.children[0].text}</p>`;
+                  }
+                  console.log("content: ", content);
+                });
+            }
+          },
+        );
+      }
+    </script>
   
 
   
-    <!-- HTML--><nav style="background-color: rgba(251, 140, 0, 1)" class="w-full shadow-lg fixed text-sm py-3 z-50">
+    <!-- HTML-->
+
+<nav style="background-color: rgba(251, 140, 0, 1)" class="w-full shadow-lg fixed text-sm py-3 z-50">
   <center>
     <div class="flex flex-row m-auto items-center justify-center">
       <div class="basis-2/5 flex flex-row-reverse gap-6 px-6">
-        <div><a href="/tailwind-infinix-website/contacts" class="navlink">
-            <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2">
-              Contacts
-            </div>
-          </a></div>
-<div><a href="/tailwind-infinix-website/library" class="navlink">
+        <div><a href="/tailwind-infinix-website/library" class="navlink">
             <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2">
               Library
             </div>
@@ -34,11 +225,6 @@
         <div><a href="/tailwind-infinix-website/about" class="navlink">
             <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2">
               About
-            </div>
-          </a></div>
-<div><a href="/tailwind-infinix-website/gallery" class="navlink">
-            <div class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-secondary duration-300 text-lg bg-primary align-middle inline-block box-border text-center my-0 px-2 rounded-md shadow-lg p-2">
-              Gallery
             </div>
           </a></div>
       </div>
