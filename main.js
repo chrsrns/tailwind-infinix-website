@@ -59,6 +59,20 @@ about.compile().then(({ html, css, js, components }) => {
   });
 });
 
+// Compiling blog.html
+console.log("Compiling blog.html");
+let blog = new WebC();
+blog.setHelper("getUrl", getUrl);
+blog.defineComponents(COMPONENTS_DIR);
+blog.setInputPath("./pages/blog.webc");
+blog.compile().then(({ html, css, js, components }) => {
+  fs.writeFile("./static/blog.html", html, (err) => {
+    if (err) {
+      console.log({ err });
+    }
+  });
+});
+
 // Compiling fake 404.html router
 console.log("Compiling fake 404.html router");
 let fakeRouter = new WebC();
