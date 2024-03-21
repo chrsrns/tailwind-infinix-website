@@ -11,17 +11,27 @@
     <blog-post>
       <div
         id="blog-header"
-        class="bg-center bg-cover bg-fixed pt-32 pb-12 px-16"
-        :style="(`
-        background-image: url(${getUrl('/static/media/TheElderScrolls5.jpg')});
-      `)"
+        class="bg-center bg-cover bg-fixed"
       >
-        <h1 id="header-text" class="mb-0 text-4xl text-center font-semibold">
-          Elder Scrolls V
-        </h1>
+
+        <div
+          class="w-full bg-yellow-100/70 pt-32 pb-12 px-16"
+        >
+        <h1
+          id="header-text"
+          class="mb-0 text-center font-semibold"
+        ></h1>
       </div>
       <div class="w-full h-full bg-yellow-50 py-12">
-        <div id="blog-contents" class="container mx-auto"></div>
+        <div id="blog-contents" class="container mx-auto">
+          <template id="blog-h1" class="mt-4"></template>
+          <template id="blog-h2" class="mt-4"></template>
+          <template id="blog-h3" class="mt-4"></template>
+          <template id="blog-h4" class="mt-4"></template>
+          <template id="blog-h5" class="mt-4"></template>
+          <template id="blog-h6" class="mt-4"></template>
+          <template id="blog-p" class=""></template>
+        </div>
       </div>
     </blog-post>
   </body>
