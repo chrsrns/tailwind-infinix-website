@@ -101,14 +101,17 @@
           "blog-post",
           class extends HTMLElement {
             connectedCallback() {
-              let blogHeader = this.querySelector("#blog-header");
-              let blogHeaderText = this.querySelector("#header-text");
-              let blogContents = this.querySelector("#blog-contents");
+              const blogHeader = this.querySelector("#blog-header");
+              const blogHeaderText = this.querySelector("#header-text");
+              const blogContents = this.querySelector("#blog-contents");
+              const blogUID = window.location.pathname
+                .split("/")
+                .filter((n) => n)[2];
 
               console.log(blogHeader);
               console.log(blogHeaderText);
               console.log(blogContents);
-              console.log(window.location.pathname);
+              console.log("UID: ", blogUID);
 
               fetch("https://chrsrns-database.domcloud.dev/graphql", {
                 method: "POST",
@@ -118,7 +121,7 @@
                 body: JSON.stringify({
                   query: `
                     query {
-                      article (filters: {Title: {eq: "Exciting New FPS Release: Review, Gameplay Impressions & Benchmark Analysis" }}) {
+                      articles (filters: {BlogID: {eq: "${blogUID}" }}) {
                         data {
                           attributes {
                             Title
@@ -141,6 +144,18 @@
                 .then((res) => res.json())
                 .then((res) => {
                   console.log("res: ", res);
+                  const content = res.data.articles.data[0].attributes.Content;
+
+                  let concatContent = "";
+                  for (let contentItem of content) {
+                    if (contentItem.type === "heading")
+                      concatContent += `<h4 class='text-xl font-semibold'>${contentItem.children[0].text}</h4>`;
+                    if (contentItem.type === "paragraph")
+                      concatContent += `<p>${contentItem.children[0].text}</p>`;
+                  }
+                  console.log("content: ", content);
+
+                  blogContents.innerHTML = concatContent;
                 });
             }
           },

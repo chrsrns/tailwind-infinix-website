@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>InfiniX - Realm of Gamers</title>
+    <meta charset="utf-8" />
+    <link :href="getUrl('/static/css/style.css')" rel="stylesheet" />
+  </head>
+
+  <body>
+    <blog-post>
+      <div
+        id="blog-header"
+        class="bg-center bg-cover bg-fixed pt-32 pb-12 px-16"
+        :style="(`
+        background-image: url(${getUrl('/static/media/TheElderScrolls5.jpg')});
+      `)"
+      >
+        <h1 id="header-text" class="mb-0 text-4xl text-center font-semibold">
+          Elder Scrolls V
+        </h1>
+      </div>
+      <div class="w-full h-full bg-yellow-50 py-12">
+        <div id="blog-contents" class="container mx-auto"></div>
+      </div>
+    </blog-post>
+  </body>
+  <script></script>
+</html>
