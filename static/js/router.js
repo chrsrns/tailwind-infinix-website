@@ -26,6 +26,14 @@ const routes = {
   },
 };
 
+const routesregex = {
+  "^/tailwind-infinix-website/blog/[^/]+$": {
+    template: "/tailwind-infinix-website/static/blog.html",
+    title: "Blog",
+    description: "This is the blog page",
+  },
+};
+
 // create document click that watches the nav links only
 document.addEventListener("click", (e) => {
   const { target } = e;
@@ -82,12 +90,26 @@ const locationHandler = async () => {
   }
 
   // get the route object from the urlRoutes object
-  const route = routes[location] || routes["404"];
+  let route = (() => {
+    for (let key of Object.keys(routesregex)) {
+      if (new RegExp(key).test(location)) {
+        return routesregex[key];
+      }
+    }
+    return routes[location] || routes["404"] || blogregex.test(location);
+  })();
+  console.log("route: ", route);
+
   // get the html from the template
   const html = await fetch(route.template).then((response) => response.text());
   // set the content of the content div to the html
   setInnerHTML(document.getElementById("content"), html);
   // set the title of the document to the title of the route
+  document.title = route.title;
+  // set the description of the document to the description of the route; TODO implement metadata for this
+  // document
+  //   .querySelector('meta[name="description"]')
+  //   .setAttribute("content", route.description);
 };
 
 // add an event listener to the window that watches for url changes
