@@ -91,8 +91,12 @@ const locationHandler = async () => {
   const trimmedurlconcat = "/" + urltrimmed.join("/");
 
   if (location !== trimmedurlconcat) {
-    if (trimmedurlconcat !== "/tailwind-infinix-website/")
-      window.location.pathname = trimmedurlconcat;
+    if (trimmedurlconcat !== "/tailwind-infinix-website/") {
+      console.log("trimming...");
+      setTimeout(function () {
+        window.location.pathname = trimmedurlconcat;
+      }, 5000);
+    }
   }
 
   // get the route object from the urlRoutes object
