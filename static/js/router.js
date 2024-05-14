@@ -14,6 +14,11 @@ const routes = {
     title: "Home",
     description: "This is the home page",
   },
+  "/tailwind-infinix-website/": {
+    template: "/tailwind-infinix-website/static/home.html",
+    title: "Home",
+    description: "This is the home page",
+  },
   "/tailwind-infinix-website/about": {
     template: "/tailwind-infinix-website/static/about.html",
     title: "About Us",
