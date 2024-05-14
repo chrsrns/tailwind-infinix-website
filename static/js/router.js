@@ -91,7 +91,8 @@ const locationHandler = async () => {
   const trimmedurlconcat = "/" + urltrimmed.join("/");
 
   if (location !== trimmedurlconcat) {
-    window.location.pathname = trimmedurlconcat;
+    if (trimmedurlconcat !== "/tailwind-infinix-website/")
+      window.location.pathname = trimmedurlconcat;
   }
 
   // get the route object from the urlRoutes object
