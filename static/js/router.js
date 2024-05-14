@@ -92,7 +92,7 @@ const locationHandler = async () => {
 
   if (location !== trimmedurlconcat) {
     if (trimmedurlconcat !== "/tailwind-infinix-website/") {
-      console.log("trimming...");
+      console.log("trimming (" + trimmedurlconcat + ")...");
       setTimeout(function () {
         window.location.pathname = trimmedurlconcat;
       }, 5000);
