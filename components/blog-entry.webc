@@ -3,4 +3,5 @@
     id="template"
     class="hidden w-full lg:w-1/3 m-6 p-4 bg-[rgba(230,81,0,0.90)] rounded-lg shadow-lg"
   ></div>
+  <slot></slot>
 </div>

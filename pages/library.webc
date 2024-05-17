@@ -43,7 +43,9 @@
             gathered all in one place.
           </h4>
 
-          <blog-entry> </blog-entry>
+          <blog-entry>
+            <loading-spinner></loading-spinner>
+          </blog-entry>
         </div>
       </div>
     </div>
