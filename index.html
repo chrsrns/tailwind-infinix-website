@@ -23,8 +23,7 @@
           class extends HTMLElement {
             connectedCallback() {
               console.log("custom element loaded");
-              // let template = this.querySelector("#template");
-              let blogsMain = this.querySelector("#blogs-main");
+              let template = this.querySelector("#template");
               fetch("https://chrsrns-database.domcloud.dev/graphql", {
                 method: "POST",
                 headers: {
@@ -55,6 +54,8 @@
                 .then((res) => {
                   console.log("res: ", res);
                   console.log("template: ", template);
+                  let loadingSpinner = this.querySelector("loading-spinner");
+                  loadingSpinner.remove();
                   for (let article of res.data.articles.data) {
                     let content = `
                   <div class="rounded-lg">
@@ -90,6 +91,7 @@
                   `;
                     let clone = template.cloneNode(false);
                     clone.removeAttribute("id");
+                    clone.classList.remove("hidden");
                     clone.innerHTML = content;
                     this.appendChild(clone);
                   }
