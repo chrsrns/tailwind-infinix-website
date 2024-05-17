@@ -1,0 +1,52 @@
+<div webc:root class="mt-12 mx-auto w-full flex flex-wrap justify-evenly">
+  <div class="relative inline-block w-20 h-20">
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.036s"
+    >
+      <div class="absolute top-[62.62742px] left-[62.62742px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.072s"
+    >
+      <div class="absolute top-[67.71281px] left-[56px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.108s"
+    >
+      <div class="absolute top-[70.90963px] left-[48.28221px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.144s"
+    >
+      <div class="absolute top-[72px] left-[40px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.18s"
+    >
+      <div class="absolute top-[70.90963px] left-[31.71779px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.216s"
+    >
+      <div class="absolute top-[67.71281px] left-[24px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.252s"
+    >
+      <div class="absolute top-[62.62742px] left-[17.37258px]"></div>
+    </div>
+    <div
+      class="absolute w-20 h-20 animate-[lds-roller_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] origin-[40px_40px] after:content-[' '] after:block after:absolute after:w-[7.2px] after:h-[7.2px] after:rounded-full after:bg-current after:m-[-3.6px_0_0_-3.6px]"
+      style="animation-delay: -0.288s"
+    >
+      <div class="absolute top-[56px] left-[12.28719px]"></div>
+    </div>
+  </div>
+</div>
