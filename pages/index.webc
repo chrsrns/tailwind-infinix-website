@@ -34,8 +34,7 @@
           class extends HTMLElement {
             connectedCallback() {
               console.log("custom element loaded");
-              // let template = this.querySelector("#template");
-              let blogsMain = this.querySelector("#blogs-main");
+              let template = this.querySelector("#template");
               fetch("https://chrsrns-database.domcloud.dev/graphql", {
                 method: "POST",
                 headers: {
