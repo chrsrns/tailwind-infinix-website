@@ -11,22 +11,22 @@ const routes = {
   },
   "/tailwind-infinix-website": {
     template: "/tailwind-infinix-website/static/home.html",
-    title: "Home",
+    title: "InfiniX - Realm of Gamers",
     description: "This is the home page",
   },
   "/tailwind-infinix-website/": {
     template: "/tailwind-infinix-website/static/home.html",
-    title: "Home",
+    title: "InfiniX - Realm of Gamers",
     description: "This is the home page",
   },
   "/tailwind-infinix-website/about": {
     template: "/tailwind-infinix-website/static/about.html",
-    title: "About Us",
+    title: "InfiniX - About Us",
     description: "This is the about page",
   },
   "/tailwind-infinix-website/library": {
     template: "/tailwind-infinix-website/static/library.html",
-    title: "Contact Us",
+    title: "InfiniX Library",
     description: "This is the contact page",
   },
 };
