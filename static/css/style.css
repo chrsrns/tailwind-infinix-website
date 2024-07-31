@@ -779,6 +779,10 @@ video {
   flex: none;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .basis-2\/5 {
   flex-basis: 40%;
 }
@@ -861,6 +865,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -900,11 +908,6 @@ video {
   background-color: rgb(255 193 7 / var(--tw-bg-opacity));
 }
 
-.bg-tertiary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 81 0 / var(--tw-bg-opacity));
-}
-
 .bg-yellow-100\/70 {
   background-color: rgb(254 249 195 / 0.7);
 }
@@ -921,6 +924,11 @@ video {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-tertiary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 81 0 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\/tailwind-infinix-website\/static\/media\/Orange\.png\'\)\] {
@@ -1050,6 +1058,11 @@ video {
   padding-bottom: 2rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1088,6 +1101,10 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
 .text-center {
