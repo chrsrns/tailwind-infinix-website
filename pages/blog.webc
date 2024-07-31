@@ -21,7 +21,7 @@
           class="mb-0 text-center font-semibold"
         ></h1>
       </div>
-      <div class="w-full h-full bg-yellow-50 py-12">
+      <div class="w-full bg-yellow-50 py-12">
         <div id="blog-contents" class="container mx-auto">
           <template id="blog-h1" class="mt-4"></template>
           <template id="blog-h2" class="mt-4"></template>
