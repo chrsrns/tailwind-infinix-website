@@ -14,7 +14,7 @@
       >
 
         <div
-          class="w-full bg-yellow-100/70 pt-32 pb-12 px-16"
+          class="w-full bg-yellow-100/70 py-12 px-16"
         >
         <h1
           id="header-text"
