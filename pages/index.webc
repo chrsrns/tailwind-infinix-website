@@ -209,9 +209,11 @@
   </head>
 
   <body>
-    <nav-bar></nav-bar>
-    <div id="content" class="min-h-screen"></div>
+    <div class="flex flex-col h-screen">
+      <nav-bar></nav-bar>
+      <div id="content" class="overflow-scroll flex-grow"></div>
 
-    <script :src="getUrl('/static/js/router.js')"></script>
+      <script :src="getUrl('/static/js/router.js')"></script>
+    </div>
   </body>
 </html>
