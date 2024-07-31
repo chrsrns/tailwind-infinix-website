@@ -43,7 +43,7 @@
           Collection of games I truly like.
         </h4>
         <center class="mb-16">
-          <div class="w-4/6 m-4 bg-tertiary shadow px-4 py-8 rounded-lg">
+          <div class="w-4/6 m-4 bg-tertiary-600 shadow px-4 py-8 rounded-lg">
             <h2>What is InfiniX?</h2>
             <p class="py-3">
               <strong>InfiniX</strong> is a website I wrote when I was on Junior
